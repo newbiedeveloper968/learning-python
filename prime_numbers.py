@@ -2,8 +2,14 @@
 
 
 def main():
-    user_input = 20
-    prime(user_input)
+
+    while True:
+        try:
+            user_input = int(input("Print Prime Numbers upto: "))
+            prime(user_input)
+            break
+        except:
+            print("Not an integer!")
     print(prime_numbers)
 
 
