@@ -78,18 +78,20 @@ def standard_to_morse(standard):
     return " / ".join(morse_form)
 
 
-option = input(
+while True:
+    try:
+        option = input(
 """1. Morse code to standard
 2. Standard to morse code
 Option: """
 )
-
-try:
-    if int(option) == 1:
-        user_input = input("Morse code: ")
-        print(morse_to_standard(user_input))
-    elif int(option) == 2:
-        user_input = input("Standard text: ")
-        print(standard_to_morse(user_input))
-except:
-    sys.exit("Not an option!")
+        if int(option) == 1:
+            user_input = input("Morse code: ")
+            print(morse_to_standard(user_input))
+            break
+        elif int(option) == 2:
+            user_input = input("Standard text: ")
+            print(standard_to_morse(user_input))
+            break
+    except:
+        print("Not an option!")
