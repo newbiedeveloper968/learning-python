@@ -28,7 +28,7 @@ prime_numbers = []
 """ Appends each prime numbers to the list -> prime_numbers """
 
 
-def prime(lim) :
+def prime(lim):
     for each_number in range(2, lim + 1):
         if check_prime(each_number):
             prime_numbers.append(each_number)
