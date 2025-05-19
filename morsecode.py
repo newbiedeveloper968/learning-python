@@ -1,6 +1,6 @@
 import sys
 
-morse_code_dict = {
+morse_code_dict: dict[str, str] = {
     ".-": "A",
     "-...": "B",
     "-.-.": "C",
@@ -56,41 +56,41 @@ morse_code_dict = {
 }
 
 
-def morse_to_standard(code):
-    words = code.split(" / ")
+def morse_to_standard(code) -> str:
+    words: list = code.split(" / ")
     standard_form = []
     for word in words:
-        letters = word.split(" ")
+        letters: list = word.split(" ")
         code_to_letter = [morse_code_dict.get(letter, "?") for letter in letters]
         standard_form.append("".join(code_to_letter))
     return " ".join(standard_form)
 
 
-invert_dict = {value: key for key, value in morse_code_dict.items()}
+invert_dict: dict = {value: key for key, value in morse_code_dict.items()}
 
 
-def standard_to_morse(standard):
-    words = standard.upper().split(" ")
+def standard_to_morse(standard) -> str:
+    words: list = standard.upper().split(" ")
     morse_form = []
     for word in words:
-        letter_to_code = [invert_dict.get(letter, "?") for letter in word]
+        letter_to_code: list = [invert_dict.get(letter, "?") for letter in word]
         morse_form.append(" ".join(letter_to_code))
     return " / ".join(morse_form)
 
 
 while True:
     try:
-        option = input(
-"""1. Morse code to standard
+        option: str = input(
+            """1. Morse code to standard
 2. Standard to morse code
 Option: """
-)
+        )
         if int(option) == 1:
-            user_input = input("Morse code: ")
+            user_input: str = input("Morse code: ")
             print(morse_to_standard(user_input))
             break
         elif int(option) == 2:
-            user_input = input("Standard text: ")
+            user_input: str = input("Standard text: ")
             print(standard_to_morse(user_input))
             break
     except:
